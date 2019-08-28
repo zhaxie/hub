@@ -80,5 +80,3 @@ $git remote add origin git@gitHub.com: zhaxie/testGit.git
 	
 21）修复在其他分支上的同个bug
 	$ git cherry-pick 步骤id     这样可以把修复后的结果同步到其他分支
-
-测试推送
