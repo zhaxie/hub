@@ -1,0 +1,84 @@
+
+第一步：
+1）建立git版本库
+$ mkdir learngit
+$ cd learngit
+$ pwd
+
+2）初始化版本库
+$ git init
+
+3)添加到暂存区\提交
+$ git add testGit.txt
+$ git commit -m "提交说明"
+
+4）查看当前的状态
+$ git status
+可以看看有没有什么提交的
+
+5）查看有什么不同
+$git diff fileName
+
+6）版本回退
+$git reset --hard HEAD^ 回退到上一个版本
+$git reset --hard 版本id     回退到指定版本
+$git reflog          打开所有的操作记录
+
+7）查看工作区和已提交的分支有什么区别
+$git diff HEAD -- fileName 
+
+8) 撤销对工作区的修改
+两种情况： 一： 未提交到暂存区： $ git checkout -- fileName  直接撤销暂存区
+	二：已提交到暂存区：第一步： git reset HEAD  fileName  撤销暂存区的修改  
+			第二步： $ git checkout -- fileName  直接撤销暂存区
+
+9）查看工作区和 分支最新版本的区别
+$git diff HEAD -- fileName 
+
+10）删除文件
+$ rm fileName 删除工作区的文件
+如果要把git中的文件删除 需要 $git rm fileName  再 $git commit
+
+2019-08-27
+
+11）关联远程库
+$git remote add origin git@gitHub.com: zhaxie/testGit.git
+网站名字  + ： + 仓库路径
+
+12）推送到远程库：
+	首次：$git push -u origin master 
+	以后：$git push origin master
+
+13）克隆远程库
+	$git clone git@gitHub.com: zhaxie/testGit.git
+	可以在任意文件夹中执行git Bash 然后把目标文件克隆下来
+
+14）创建并切换分支
+	$git checkout -b dev
+
+15)  切换分支
+	$git checkout 分支名字
+
+16）创建分支
+	$git branch 分支名字
+	 测试2
+17）合并分支
+	$git merge 目标分支
+	测试冲突位置2
+
+18）查看分支图
+	$git log --graph
+
+
+临时分支
+19）隐藏现场
+	$git stash
+
+20）显示现场
+	方式一：$git stash apply 恢复 $git stash drop  删除stash 内容
+	方式二：$git stash pop 恢复现场并删除stash 内容
+	
+21）修复在其他分支上的同个bug
+	$ git cherry-pick 步骤id     这样可以把修复后的结果同步到其他分支
+
+测试推送
