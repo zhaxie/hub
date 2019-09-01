@@ -1,0 +1,51 @@
+第一步： npm init 初始化webpack, 生成package.json
+
+第二步： 新建个文件夹 webpack.config.js  
+
+        1) 设置入口文件
+            entry: './src/js/entry.js',
+        2) 设置出口文件
+            output: {
+                filename: 'index.js',
+                path: __dirname + '/out',
+            },
+        3) 安装必备的打包模块
+            一：安装es6转es5:
+                npm install babel babel-core 
+                npm install babel-loader@7 
+
+            二：安装css打包工具, 
+                注意: 安装顺序，先css-loader再style-loader
+                npm install css-loader
+                npm install style-loader 
+
+            三：安装图片路径打包工具
+                注意：需要安装文件loader
+                npm install file-loader
+                npm install url-loader
+        4) 使用插件(例子： uglifyjs-webpack-plugin  压缩代码插件)
+            一：下载 
+                npm install uglifyjs-webpack-plugin
+
+            二：引入
+            var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+
+            三：使用
+                plugins: [                                  // 打包需要的各种插件
+                    new 插件名字(),
+                ],
+
+
+
+
+备注：
+1) 多个入口文件写法：
+    entry: {
+        './src/js/entry.js',
+        './src/js/entry2.js',
+    }
+    output: {
+        filename: '[name].js',
+        path: __dirname + '/out',
+        publicPath: './out', 
+    },
